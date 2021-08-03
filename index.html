@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Surat Lamaran Kasuh :v</h1>
+    </header>
+    <section class="container">
+      <div class="puisi">
+        <p>
+          <strong
+            >Getting to know you more wasn’t a choice—it was a need…which is
+            probably why… </strong
+          >I made a point to undoubtedly embarrass myself as I tried to PDKT you
+          with my out-of-date topic
+        </p>
+        <br />
+
+        <p>Roses are red</p>
+        <p>Violets are blue</p>
+        <p><strong>Lets cut the sweet talk</strong></p>
+        <p><strong>Maukah jadi kakak asuh ku :v</strong></p>
+      </div>
+    </section>
+    <footer>
+      <form action="https://formspree.io/f/xwkarnrg" method="POST" id="my-form">
+        <div class="form-group">
+          <label for="name" placeholder="nama">Saya</label>
+          <input type="text" id="name" name="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="answer"></label>
+          <textarea name="answer" id="answer" cols="30" rows="10"></textarea>
+        </div>
+        <button type="submit">Kirim</button>
+      </form>
+      <div id="my-form-status" class="success"></div>
+    </footer>
+
+    <script>
+      var form = document.getElementById("my-form");
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("my-form-status");
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            status.innerHTML = "Pesan terkirim, Terima kasih, UwU!";
+            form.reset();
+          })
+          .catch((error) => {
+            status.innerHTML = "Oops! There was a problem submitting your form";
+          });
+      }
+      form.addEventListener("submit", handleSubmit);
+    </script>
+  </body>
+</html>
